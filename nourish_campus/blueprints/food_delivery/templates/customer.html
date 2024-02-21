@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Customer Info</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Food Delivery</h1>
+
+    <h2>Customer Info</h2>
+    <p>name = {{customer.name}}</p>
+    <p>daily_calories_goal = {{customer.daily_calories_goal}}, 
+        per_meal_calories_limit = {{customer.per_meal_calories_limit}} </p>
+    <p>total calories consumed today = {{totalCalories}}</p>
+    
+    <h2>Today's Ordered Meals</h2>
+    <ol>
+        {% for orderId, menuItems in menuItemsByOrderId.items() %}
+        <li>Meal order: orderId = {{orderId}}
+            <ul>
+                {% for menuItem in menuItems %}
+                <li>name = {{menuItem.name}}, calories = {{menuItem.calories}}, restaurant = {{menuItem.restaurant_id}} </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ol>
+
+    <h2>Suggested Meal</h2>
+    {% if suggestedMeal|length < 1 %} <h4>There is no suggested meal.</h4>
+    {% else %}
+        <ul>
+            {% for menuItem in suggestedMeal %}
+            <li>name = {{menuItem.name}}, calories = {{menuItem.calories}}, restaurant = {{menuItem.restaurant_id}} </li>
+            {% endfor %}
+        </ul>
+        <p><a href="/food_delivery/order/?customer={{customer.id}}&{{suggestedMealQueryString}}">Order the meal</a></p>
+        <p><a href="/food_delivery/customer/{{customer.id}}">Suggest a meal again</a></p>
+    {% endif %}
+    <p><a href="/">Back to Home</a></p>
+</div>
+{% endblock %}
