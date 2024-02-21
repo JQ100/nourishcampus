@@ -79,9 +79,8 @@ def order():
     if not itemIds:
         return redirect(f'/food_delivery/customer/{customerId}')
 
-    name = "meal" # todo: let user specify the meal name
-    payment = 20 # todo: may pass the payment in customer.html
-    new_order = MealOrder(name=name, customer_id=customerId, payment=payment)
+    name = "meal" # todo: let user specify the meal name (bfast, lunch, dinner, etc.)
+    new_order = MealOrder(name=name, customer_id=customerId)
     try:
         db.session.add(new_order)
         db.session.commit()

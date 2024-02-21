@@ -41,7 +41,6 @@ class MealOrder(db.Model):
     # breakfast, lunch, dinner, etc.
     name = db.Column(db.String(20))
     customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
-    payment = db.Column(db.Float)
     created_at = db.Column(db.Date, default=datetime.now().date())
 
     customer = db.relationship("Customer", backref="MealOrder")
