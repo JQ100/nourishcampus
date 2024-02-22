@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Order</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Order</h1>
+    {% if orders|length < 1 %} <h4 style="text-align: center">There are no orders.</h4>
+        {% else %}
+        <table class="center">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>customer_id</th>
+                <th>payment</th>
+                <th>created_at</th>
+                <th>Actions</th>
+            </tr>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.customer_id }}</td>
+                <td>{{ order.payment }}</td>
+                <td>{{ order.created_at }}</td>
+                <td>
+                    <a href="/order/delete/{{order.id}}">Delete</a>
+                    <br>
+                    <a href="/order/update/{{order.id}}">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <p style="text-align: center"><a href="/">Back to Home</a></p>
+</div>
+{% endblock %}
