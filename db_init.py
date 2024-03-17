@@ -32,7 +32,9 @@ db_session.commit()
 
 # add restaurant
 restaurants = [
-    Restaurant(name="Starbucks", phone="202-885-7497", email="123@mail.com", address="Mary Graydon Center Tunnel")
+    Restaurant(name="Starbucks", phone="202-885-7497", email="123@mail.com", address="Mary Graydon Center Tunnel"),
+    Restaurant(name="Subway", phone="202-237-2424", email="123@mail.com", address="Mary Graydon Center Tunnel")
+
 ]
 db_session.add_all(restaurants)
 db_session.commit()
@@ -159,7 +161,60 @@ menuItems = [
     MenuItem(name="Dragon Drink Refresher with Oleato Golden Foam", price=8.95, calories=380, restaurant_id=1),
     MenuItem(name="Paradise Drink Refresher with Oleato Golden Foam", price=8.95, calories=390, restaurant_id=1),
     MenuItem(name="Iced Matcha Tea Latte with Oleato Golden Foam", price=9.25, calories=410, restaurant_id=1),
-
+    MenuItem(name="6 inch Black Forest Ham Sub", price=5.89, calories=260, restaurant_id=2),
+    MenuItem(name="6 inch All American Club Sub", price=7.69, calories=530, restaurant_id=2),
+    MenuItem(name="6 inch Chicken & Bacon Ranch Melt Sub", price=6.59, calories=540, restaurant_id=2),
+    MenuItem(name="6 inch Italian B.M.T Sub", price=6.49, calories=380, restaurant_id=2),
+    MenuItem(name="6 inch Spicy Italian Sub", price=5.89, calories=450, restaurant_id=2),
+    MenuItem(name="6 inch Steak & Cheese Sub", price=6.29, calories=340, restaurant_id=2),
+    MenuItem(name="6 inch Tuna Sub", price=6.59, calories=450, restaurant_id=2),
+    MenuItem(name="6 inch Meatball Marinara Sub", price=5.89, calories=430, restaurant_id=2),
+    MenuItem(name="6 inch Veggie Delite Sub", price=5.29, calories=200, restaurant_id=2),
+    MenuItem(name="6 inch Turkey Breast Sub", price=6.69, calories=250, restaurant_id=2),
+    MenuItem(name="6 inch Roast Beef Sub", price=7.39, calories=290, restaurant_id=2),
+    MenuItem(name="6 inch Rotisserie-Style Chicken Sub", price=6.19, calories=310, restaurant_id=2),
+    MenuItem(name="6 inch B.L.T Sub", price=5.99, calories=340, restaurant_id=2),
+    MenuItem(name="6 inch Buffalo Chicken Sub", price=6.89, calories=340, restaurant_id=2),
+    MenuItem(name="6 inch Oven Roasted Turkey Sub", price=6.69, calories=260, restaurant_id=2),
+    MenuItem(name="6 inch Teriyaki Chicken Sub", price=7.29, calories=353, restaurant_id=2),
+    MenuItem(name="6 inch Subway Club Sub", price=6.99, calories=310, restaurant_id=2),
+    MenuItem(name="6 inch Turkey B.L.T Sub", price=7.49, calories=340, restaurant_id=2),
+    MenuItem(name="6 inch Cali Turkey Pro", price=8.89, calories=570, restaurant_id=2),
+    MenuItem(name="6 inch The Monster", price=7.29, calories=540, restaurant_id=2),
+    MenuItem(name="6 inch The Philly", price=6.69, calories=480, restaurant_id=2),
+    MenuItem(name="6 inch The Outlaw", price=6.69, calories=440, restaurant_id=2),
+    MenuItem(name="6 inch The Boss", price=7.59, calories=580, restaurant_id=2),
+    MenuItem(name="6 inch The Mexicali", price=6.99, calories=540, restaurant_id=2),
+    MenuItem(name="6 inch The Great Garlic", price=7.19, calories=570, restaurant_id=2),
+    MenuItem(name="6 inch Titan Turkey", price=6.89, calories=490, restaurant_id=2),
+    MenuItem(name="6 inch Garlic Roast Beef", price=7.79, calories=480, restaurant_id=2),
+    MenuItem(name="6 inch The Beast", price=7.39, calories=730, restaurant_id=2),
+    MenuItem(name="6 inch Grand Slam Ham", price=6.89, calories=416, restaurant_id=2),
+    MenuItem(name="12 inch Black Forest Ham Sub", price=8.89, calories=520, restaurant_id=2),
+    MenuItem(name="12 inch All American Club Sub", price=12.29, calories=890, restaurant_id=2),
+    MenuItem(name="12 inch Sweet Onion Chicken Teriyaki Sub", price=11.49, calories=650, restaurant_id=2),
+    MenuItem(name="12 inch Chicken & Bacon Ranch Melt Sub", price=12.79, calories=1070, restaurant_id=2),
+    MenuItem(name="12 inch Veggie Delite Sub", price=7.69, calories=390, restaurant_id=2),
+    MenuItem(name="12 inch Roast Beef Sub", price=10.39, calories=570, restaurant_id=2),
+    MenuItem(name="12 inch Rotisserie-Style Chicken Sub", price=11.29, calories=630, restaurant_id=2),
+    MenuItem(name="12 inch Buffalo Chicken Sub", price=10.59, calories=690, restaurant_id=2),
+    MenuItem(name="12 inch Subway Melt Sub", price=10.19, calories=750, restaurant_id=2),
+    MenuItem(name="12 inch Oven Roasted Turkey Sub", price=10.19, calories=530, restaurant_id=2),
+    MenuItem(name="12 inch VegiMax Sub", price=8.39, calories=1040, restaurant_id=2),
+    MenuItem(name="12 inch Subway Club Sub", price=10.29, calories=890, restaurant_id=2),
+    MenuItem(name="12 inch The Monster", price=11.79, calories=1460, restaurant_id=2),
+    MenuItem(name="12 inch The Philly", price=10.49, calories=1369, restaurant_id=2),
+    MenuItem(name="12 inch The Outlaw", price=10.49, calories=1120, restaurant_id=2),
+    MenuItem(name="12 inch The Boss", price=11.99, calories=1120, restaurant_id=2),
+    MenuItem(name="12 inch The Great Garlic", price=12.59, calories=1290, restaurant_id=2),
+    MenuItem(name="12 inch Titan Turkey", price=9.29, calories=980, restaurant_id=2),
+    MenuItem(name="12 inch Garlic Roast Beef", price=11.09, calories=630, restaurant_id=2),
+    MenuItem(name="12 inch The Beast", price=11.89, calories=1460, restaurant_id=2),
+    MenuItem(name="12 inch Grand Slam Ham", price=9.29, calories=1000, restaurant_id=2),
+    MenuItem(name="12 inch Tuna Bacon Guacamole", price=9.19, calories=1300, restaurant_id=2),
+    MenuItem(name="12 inch Mexicali", price=12.39, calories=1140, restaurant_id=2),
+    MenuItem(name="12 inch Supreme Meats", price=11.99, calories=900, restaurant_id=2),
+    
 ]
 db_session.add_all(menuItems)
 db_session.commit()
