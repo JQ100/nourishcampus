@@ -22,4 +22,6 @@ def menu_item():
             return 'There was an issue adding the menu item'
     else:
         menu_items = MenuItem.query.order_by(MenuItem.created_at).all()
+        # first menu_index template is passed in, second is the var representing db query
+        # menu_items contains all menu item queries, then used in template loop traversing the menu items
         return render_template('menu_index.html', menu_items=menu_items)
