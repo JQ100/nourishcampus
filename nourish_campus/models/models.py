@@ -4,7 +4,9 @@ from datetime import datetime
 
 # May add username and password later
 class Customer(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String, primary_key=True)
+    password = db.Column(db.String)
+    authenticated = db.Column(db.Boolean, default=False)
     name = db.Column(db.String(50))
     daily_calories_goal = db.Column(db.Integer)
     per_meal_calories_limit = db.Column(db.Integer)
@@ -12,7 +14,23 @@ class Customer(db.Model):
 
     def __repr__(self):
         return '<Customer %r>' % self.id 
+    
+    def is_active(self):
+        """True, all users active"""
+        return True
+    
+    def get_id(self):
+        """Returns email to satisfy flask login requirements"""
+        return self.email
 
+    def is_authenticated(self):
+        """Returns True if user is authenticated"""
+        return self.authenticated
+    
+    def is_anonymous(self):
+        """Returns False, since anonymous users aren't supported"""
+        return False
+    
 class Restaurant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
@@ -40,7 +58,7 @@ class MealOrder(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # breakfast, lunch, dinner, etc.
     name = db.Column(db.String(20))
-    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
+    customer_id = db.Column(db.Integer, db.ForeignKey('customer.email'))
     created_at = db.Column(db.Date, default=datetime.now().date())
 
     customer = db.relationship("Customer", backref="MealOrder")

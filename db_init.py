@@ -9,7 +9,9 @@ from nourish_campus.models import *
 from sqlalchemy.orm import Session
 
 # create all the tables in models directory
-db.create_all(app=create_app())
+# db.create_all(app=create_app())
+with create_app().app_context():
+    db.create_all()
 
 # initialize a db session
 engine = create_engine('sqlite:///nourish_campus/db.sqlite3', echo=True)
@@ -25,7 +27,7 @@ db_session.commit()
 
 # add customers
 customers = [
-    Customer(name="John Doe", daily_calories_goal=2800, per_meal_calories_limit=1000)
+    Customer(name="John Doe", daily_calories_goal=2800, email="jd101a@american.edu", per_meal_calories_limit=1000)
 ]
 db_session.add_all(customers)
 db_session.commit()
