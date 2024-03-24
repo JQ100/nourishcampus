@@ -22,13 +22,3 @@ def customer():
     else:
         customers = Customer.query.order_by(Customer.created_at).all()
         return render_template('customer_index.html', customers=customers)
-
-
-# @customer_bp.user_loader
-def user_loader(user_id):
-    """Given *user_id*, return the associated User object.
-
-    :param unicode user_id: user_id (email) user to retrieve
-
-    """
-    return Customer.query.get(user_id)
