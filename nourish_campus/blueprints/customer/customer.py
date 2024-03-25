@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, url_for
 from ...models.models import Customer
 from ...extensions import db
 from flask_login import login_user, current_user, logout_user, login_required
@@ -37,6 +37,35 @@ customer_bp = Blueprint("customer", __name__, template_folder="templates")
 
 @customer_bp.route("/customer", methods=['POST', 'GET'])
 def greeting():
+    from ... import bcrypt
+    if RegistrationForm().validate_on_submit():
+        register_form = RegistrationForm()
+        hashed_password = bcrypt.generate_password_hash(register_form.password.data).decode('utf-8')
+        user = Customer(username = register_form.username.data,
+                    email = register_form.email.data,
+                    password = hashed_password)
+        db.session.add(user)
+        db.session.commit()
+ 
+        user = Customer.query.filter_by(email =  
+               RegistrationForm().email.data).first()
+        if user and bcrypt.check_password_hash(user.password,        
+           RegistrationForm().password.data):
+            login_user(user)
+        return redirect(url_for('nourish_campus'))
+
+    if LoginForm().validate_on_submit():
+        login_form = LoginForm()
+        user = Customer.query.filter_by(email =  
+               login_form.email.data).first()
+        
+        if user and bcrypt.check_password_hash(user.password, 
+            login_form.password.data):
+            
+            login_user(user, remember = login_form.remember.data)
+            
+        return redirect(url_for('nourish_campus'))
+
     return render_template('customer_index.html',
                            login_form=LoginForm(),
                            register_form=RegistrationForm())

@@ -1,9 +1,8 @@
 from nourish_campus.models.models import MenuItem, Customer, Restaurant, MealOrder, OrderItem
 
 from sqlalchemy import create_engine
-from nourish_campus import db
 from nourish_campus.extensions import db
-from nourish_campus import create_app
+from nourish_campus import create_app, bcrypt
 from nourish_campus.models import *
 
 from sqlalchemy.orm import Session
@@ -24,8 +23,9 @@ db_session.query(OrderItem).delete()
 db_session.commit()
 
 # add customers
+hashed_password = bcrypt.generate_password_hash("password").decode('utf-8')
 customers = [
-    Customer(username="jd101a", name="John Doe", password="password", daily_calories_goal=2800, email="jd101a@american.edu", per_meal_calories_limit=1000)
+    Customer(username="jd101a", name="John Doe", password=hashed_password, daily_calories_goal=2800, email="jd101a@american.edu", per_meal_calories_limit=1000)
 ]
 db_session.add_all(customers)
 db_session.commit()
