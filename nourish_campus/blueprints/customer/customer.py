@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, request, redirect
 from ...models.models import Customer
 from ...extensions import db
+from flask_login import login_user, current_user, logout_user, login_required
+
 
 customer_bp = Blueprint("customer", __name__, template_folder="templates")
 
