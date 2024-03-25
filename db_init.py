@@ -25,7 +25,7 @@ db_session.commit()
 
 # add customers
 customers = [
-    Customer(name="John Doe", daily_calories_goal=2800, per_meal_calories_limit=1000)
+    Customer(username="jd101a", name="John Doe", password="password", daily_calories_goal=2800, email="jd101a@american.edu", per_meal_calories_limit=1000)
 ]
 db_session.add_all(customers)
 db_session.commit()

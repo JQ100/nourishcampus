@@ -5,6 +5,10 @@ from datetime import datetime
 # May add username and password later
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String, nullable=False)
+    authenticated = db.Column(db.Boolean, default=False)
     name = db.Column(db.String(50))
     daily_calories_goal = db.Column(db.Integer)
     per_meal_calories_limit = db.Column(db.Integer)
