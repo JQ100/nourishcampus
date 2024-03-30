@@ -13,3 +13,4 @@ MarkupSafe==2.0.1
 SQLAlchemy==1.4.31
 Werkzeug==2.0.2
 wtforms==3.1.2
+email_validator==2.1.1

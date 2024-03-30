@@ -9,7 +9,7 @@ from .blueprints.restaurant.restaurant import restaurant_bp
 from .blueprints.order.order import order_bp
 from .blueprints.order_item.order_item import order_item_bp
 
-from flask_wtf.csrf import CSRFProtect
+# from flask_wtf.csrf import CSRFProtect
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 import os
@@ -41,7 +41,7 @@ app = create_app()
 
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
-csrf = CSRFProtect(app) 
+# csrf = CSRFProtect(app) 
 bcrypt = Bcrypt(app)
 
 login_manager = LoginManager(app)
