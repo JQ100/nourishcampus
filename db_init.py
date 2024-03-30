@@ -33,8 +33,8 @@ db_session.commit()
 # add restaurant
 restaurants = [
     Restaurant(name="Starbucks", phone="202-885-7497", email="123@mail.com", address="Mary Graydon Center Tunnel"),
-    Restaurant(name="Subway", phone="202-237-2424", email="123@mail.com", address="Mary Graydon Center Tunnel")
-
+    Restaurant(name="Subway", phone="202-237-2424", email="123@mail.com", address="Mary Graydon Center Tunnel"),
+    Restaurant(name="Qdoba", phone="901-846-3127", email="123@mail.com", address="Inside Mary Graydon Center")
 ]
 db_session.add_all(restaurants)
 db_session.commit()
@@ -244,7 +244,53 @@ menuItems = [
     MenuItem(name="Meatball Marinara Chopped Salad", price=8.19, calories=300, restaurant_id=2),
     MenuItem(name="Chips", price=1.39, calories=130, restaurant_id=2),
     MenuItem(name="Cookie", price=0.99, calories=200, restaurant_id=2),
-    
+    MenuItem(name="Vegetarian Burrito", price=9.85, calories=1070, restaurant_id=3),
+    MenuItem(name="Grilled Adobo Chicken Burrito", price=10.45, calories=1175, restaurant_id=3),
+    MenuItem(name="Cholula Hot Sweet Chicken Burrito", price=10.95, calories=900, restaurant_id=3),
+    MenuItem(name="Ground Beef Burrito", price=10.45, calories=1250, restaurant_id=3),
+    MenuItem(name="Grilled Steak Burrito", price=11.55, calories=1035, restaurant_id=3),
+    MenuItem(name="Pulled Pork Burrito", price=10.95, calories=1055, restaurant_id=3),
+    MenuItem(name="Brisket Birria Burrito", price=11.95, calories=1040, restaurant_id=3),
+    MenuItem(name="Vegetarian Bowl", price=9.85, calories=555, restaurant_id=3),
+    MenuItem(name="Grilled Adobo Chicken Bowl", price=10.45, calories=660, restaurant_id=3),
+    MenuItem(name="Cholula Hot Sweet Chicken Bowl", price=10.95, calories=590, restaurant_id=3),
+    MenuItem(name="Ground Beef Bowl", price=10.45, calories=770, restaurant_id=3),
+    MenuItem(name="Grilled Steak Bowl", price=11.55, calories=650, restaurant_id=3),
+    MenuItem(name="Pulled Pork Bowl", price=10.95, calories=525, restaurant_id=3),
+    MenuItem(name="Brisket Birria Bowl", price=11.95, calories=490, restaurant_id=3),    
+    MenuItem(name="3 Tacos - Vegetarian", price=9.85, calories=480, restaurant_id=3),
+    MenuItem(name="3 Tacos - Grilled Adobo Chicken", price=10.45, calories=645, restaurant_id=3),
+    MenuItem(name="3 Tacos - Cholula Hot Sweet Chicken", price=10.95, calories=510, restaurant_id=3),
+    MenuItem(name="3 Tacos - Ground Beef", price=10.45, calories=585, restaurant_id=3),
+    MenuItem(name="3 Tacos - Grilled Steak", price=11.55, calories=480, restaurant_id=3),
+    MenuItem(name="3 Tacos - Pulled Pork", price=10.95, calories=420, restaurant_id=3),
+    MenuItem(name="3 Tacos - Brisket Birria", price=11.95, calories=660, restaurant_id=3),
+    MenuItem(name="Vegetarian Nachos", price=9.85, calories=1170, restaurant_id=3),
+    MenuItem(name="Grilled Adobo Chicken Nachos", price=10.45, calories=1360, restaurant_id=3),
+    MenuItem(name="Cholula Hot Sweet Chicken Nachos", price=10.95, calories=1220, restaurant_id=3),
+    MenuItem(name="Ground Beef Nachos", price=10.45, calories=999, restaurant_id=3),
+    MenuItem(name="Grilled Steak Nachos", price=11.55, calories=1010, restaurant_id=3),
+    MenuItem(name="Pulled Pork Nachos", price=10.95, calories=1205, restaurant_id=3),
+    MenuItem(name="Brisket Birria Nachos", price=11.95, calories=1520, restaurant_id=3),
+    MenuItem(name="Vegetarian Taco Salad - No Shell", price=9.85, calories=490, restaurant_id=3),
+    MenuItem(name="Vegetarian Taco Salad With Shell", price=9.85, calories=615, restaurant_id=3),
+    MenuItem(name="Grilled Adobo Chicken Taco Salad - No Shell", price=10.45, calories=410, restaurant_id=3),
+    MenuItem(name="Grilled Adobo Chicken Taco Salad With Shell", price=10.45, calories=500, restaurant_id=3),
+    MenuItem(name="Cholula Hot Sweet Chicken Taco Salad - No Shell", price=10.95, calories=360, restaurant_id=3),
+    MenuItem(name="Cholula Hot Sweet Chicken Taco Salad With Shell", price=10.95, calories=450, restaurant_id=3),
+    MenuItem(name="Ground Beef Taco Salad - No Shell", price=10.45, calories=425, restaurant_id=3),
+    MenuItem(name="Ground Beef Taco Salad With Shell", price=10.45, calories=525, restaurant_id=3),
+    MenuItem(name="Grilled Steak Taco Salad - No Shell", price=11.55, calories=335, restaurant_id=3),
+    MenuItem(name="Grilled Steak Taco Salad With Shell", price=11.55, calories=495, restaurant_id=3),
+    MenuItem(name="Pulled Pork Taco Salad - No Shell", price=10.95, calories=340, restaurant_id=3),
+    MenuItem(name="Pulled Pork Taco Salad With Shell", price=10.95, calories=460, restaurant_id=3),
+    MenuItem(name="Brisket Birria Taco Salad - No Shell", price=11.95, calories=540, restaurant_id=3),
+    MenuItem(name="Brisket Birria Taco Salad With Shell", price=11.95, calories=675, restaurant_id=3),
+    MenuItem(name="Double Fudge Brownie", price=1.95, calories=360, restaurant_id=3),
+    MenuItem(name="Chips and Salsa", price=3.95, calories=310, restaurant_id=3),
+    MenuItem(name="Chips and Queso", price=6.25, calories=905, restaurant_id=3),
+    MenuItem(name="Chips and Guacomole", price=5.25, calories=730, restaurant_id=3),
+
 ]
 db_session.add_all(menuItems)
 db_session.commit()
