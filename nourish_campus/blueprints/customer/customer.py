@@ -33,6 +33,7 @@ class LoginForm(FlaskForm):
                                     Email()])
     password = PasswordField('Password',
                              validators=[DataRequired()])
+    # todo: add this to html
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
@@ -59,39 +60,24 @@ def greeting():
                RegistrationForm().email.data).first()
         if user and bcrypt.check_password_hash(user.password, RegistrationForm().password.data):
             login_user(user)
-        return redirect(url_for('nourish_campus'))
+        # return redirect(url_for('nourish_campus'))
+        return redirect('/')
 
     if LoginForm().validate_on_submit():
         login_form = LoginForm()
         user = Customer.query.filter_by(email =  
                login_form.email.data).first()
+        # todo: create a user_not_found page
+        if not user:
+            return render_template('views/user_not_found.html')
         
         if user and bcrypt.check_password_hash(user.password, 
             login_form.password.data):
             
             login_user(user, remember = login_form.remember.data)
             
-        return redirect(url_for('nourish_campus'))
+        return redirect('/')
 
     return render_template('customer_index.html',
                            login_form=LoginForm(),
                            register_form=RegistrationForm())
-
-# obsolete, delete later
-def customer():
-    if request.method == 'POST':
-        name = request.form['name']
-        daily_calories_goal = int(request.form['daily_calories_goal'])
-        per_meal_calories_limit = int(request.form['per_meal_calories_limit'])
-        new_customer = Customer(
-            name=name, daily_calories_goal=daily_calories_goal, per_meal_calories_limit=per_meal_calories_limit)
-
-        try:
-            db.session.add(new_customer)
-            db.session.commit()
-            return redirect('/customer')
-        except:
-            return 'There was an issue adding the customer'
-    else:
-        customers = Customer.query.order_by(Customer.created_at).all()
-        return render_template('customer_index.html', customers=customers)
