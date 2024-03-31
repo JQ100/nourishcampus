@@ -25,7 +25,7 @@ db_session.commit()
 # add customers
 hashed_password = bcrypt.generate_password_hash("password").decode('utf-8')
 customers = [
-    Customer(username="jd101a", name="John Doe", password=hashed_password, daily_calories_goal=2800, email="jd101a@american.edu", per_meal_calories_limit=1000)
+    Customer(name="John Doe", password=hashed_password, daily_calories_goal=2800, email="jd101a@american.edu", per_meal_calories_limit=1000)
 ]
 db_session.add_all(customers)
 db_session.commit()

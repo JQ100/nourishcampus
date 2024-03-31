@@ -9,9 +9,6 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, NumberRange
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username',
-                           validators=[DataRequired(),
-                                       Length(min=2, max=20)])
     email = StringField('Email',
                         validators=[DataRequired(),
                                     Email()])
@@ -46,8 +43,7 @@ def greeting():
     if RegistrationForm().validate_on_submit():
         register_form = RegistrationForm()
         hashed_password = bcrypt.generate_password_hash(register_form.password.data).decode('utf-8')
-        user = Customer(username=register_form.username.data,
-                        email=register_form.email.data,
+        user = Customer(email=register_form.email.data,
                         password=hashed_password, 
                         name=register_form.name.data, 
                         daily_calories_goal=register_form.daily_calories_goal.data,
