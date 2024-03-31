@@ -67,7 +67,6 @@ def greeting():
         login_form = LoginForm()
         user = Customer.query.filter_by(email =  
                login_form.email.data).first()
-        # todo: create a user_not_found page
         if not user:
             return render_template('views/user_not_found.html')
         
@@ -76,6 +75,10 @@ def greeting():
             
             login_user(user, remember = login_form.remember.data)
             
+        return redirect('/')
+
+    if (request.method == "POST") & (request.form.get('post_header') == 'log out'):
+        logout_user()
         return redirect('/')
 
     return render_template('customer_index.html',
