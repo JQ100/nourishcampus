@@ -66,9 +66,14 @@ def greeting():
         if not user:
             return render_template('views/user_not_found.html')
         
-        if user and bcrypt.check_password_hash(user.password, 
-            login_form.password.data):
-            
+        password_check = bcrypt.check_password_hash(user.password, 
+            login_form.password.data)
+        
+        if not password_check:
+            return render_template('views/password_fail.html')
+        
+        if user and password_check:
+
             login_user(user, remember = login_form.remember.data)
             
         return redirect('/')
