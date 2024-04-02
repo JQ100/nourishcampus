@@ -72,3 +72,4 @@ sqlite> select * from personal_info;
 - [Query string arguments in REST APIs with Flask](https://blog.teclado.com/query-string-arguments-in-flask-rest-apis/)
 - [Normal forms in DB](https://www.geeksforgeeks.org/normal-forms-in-dbms/). We believe that the DB schema conforms to 3NF and BCNF although we did not prove it.
 - [Sending and retrieving form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data)
+- [Hot to fix favicon.ico 404 errors](https://appwrk.com/resolving-favicon-ico-404-errors)
