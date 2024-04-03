@@ -12,6 +12,7 @@ class Customer(db.Model, UserMixin):
     name = db.Column(db.String(50))
     daily_calories_goal = db.Column(db.Integer)
     per_meal_calories_limit = db.Column(db.Integer)
+    is_admin = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
     def __repr__(self):

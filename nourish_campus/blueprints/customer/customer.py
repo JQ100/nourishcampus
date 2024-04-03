@@ -73,9 +73,8 @@ def greeting():
             return render_template('views/password_fail.html')
         
         if user and password_check:
-
             login_user(user, remember = login_form.remember.data)
-            
+
         return redirect('/')
 
     if (request.method == "POST") & (request.form.get('post_header') == 'log out'):
