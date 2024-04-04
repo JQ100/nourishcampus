@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect
 from ...models.models import Customer, MealOrder, OrderItem, MenuItem
 from ...extensions import db
 from datetime import datetime
+from flask_login import current_user
 
 food_delivery_bp = Blueprint("food_delivery", __name__, template_folder="templates")
 
@@ -9,6 +10,7 @@ food_delivery_bp = Blueprint("food_delivery", __name__, template_folder="templat
 @food_delivery_bp.route("/food_delivery")
 def food_delivery():
     customers = Customer.query.all()
+    customers = [current_user]
     return render_template('food_delivery_index.html', customers=customers)
 
 @food_delivery_bp.route("/food_delivery/customer/<int:id>")
