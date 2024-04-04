@@ -35,7 +35,8 @@ restaurants = [
     Restaurant(name="Starbucks", phone="202-885-7497", email="123@mail.com", address="Mary Graydon Center Tunnel"),
     Restaurant(name="Subway", phone="202-237-2424", email="123@mail.com", address="Mary Graydon Center Tunnel"),
     Restaurant(name="Qdoba", phone="901-846-3127", email="123@mail.com", address="Mary Graydon Center Tunnel"),
-    Restaurant(name="Panera Bread", phone="202-885-3184", email="123@mail.com", address="Mary Graydon Center")
+    Restaurant(name="Panera Bread", phone="202-885-3184", email="123@mail.com", address="Mary Graydon Center"),
+    Restaurant(name="The District Pickle", phone="202-885-7770", email="123@mail.com", address="Mary Graydon Center")
 
 ]
 db_session.add_all(restaurants)
@@ -414,6 +415,21 @@ menuItems = [
     MenuItem(name="Bottled Water", price=2.59, calories=0, restaurant_id=4),
     MenuItem(name="Iced Tea", price=3.09, calories=10, restaurant_id=4),
     MenuItem(name="Orange Juice", price=3.49, calories=160, restaurant_id=4),
+    MenuItem(name="Salami & Egg Breakfast Bagel", price=9.65, calories=580, restaurant_id=5),
+    MenuItem(name="Bacon Tomato & Egg Breakfast Bagel", price=7.05, calories=500, restaurant_id=5),
+    MenuItem(name="Toasted Bagel and Spread", price=4.15, calories=380, restaurant_id=5),
+    MenuItem(name="Mumbo Jumbo Sandwich", price=10.29, calories=370, restaurant_id=5),
+    MenuItem(name="Roast Beef Sandwich", price=11.45, calories=470, restaurant_id=5),
+    MenuItem(name="The Eagle Sandwich", price=12.59, calories=530, restaurant_id=5),
+    MenuItem(name="The Donkey & Elephant Sandwich", price=11.45, calories=570, restaurant_id=5),
+    MenuItem(name="Corn Beef & Pickles Sandwich", price=10.29, calories=430, restaurant_id=5),
+    MenuItem(name="Pastrami & Slaw Sandwich", price=10.29, calories=430, restaurant_id=5),
+    MenuItem(name="Matzah Ball Soup", price=4.39, calories=170, restaurant_id=5),
+    MenuItem(name="Falafel Wrap", price=15.75, calories=660, restaurant_id=5),
+    MenuItem(name="Vegan Potato Bourekas", price=15.75, calories=130, restaurant_id=5),
+    MenuItem(name="Mediterranean Grilled Vegetable", price=15.75, calories=340, restaurant_id=5),
+    MenuItem(name="Cole Slaw", price=2.29, calories=150, restaurant_id=5),
+    MenuItem(name="Black and White Cookie", price=3.25, calories=250, restaurant_id=5),
 ]
 db_session.add_all(menuItems)
 db_session.commit()
