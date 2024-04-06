@@ -13,23 +13,17 @@ def food_delivery():
     customers = [current_user]
     return render_template('food_delivery_index.html', customers=customers)
 
-@food_delivery_bp.route("/food_delivery/customer/<int:id>")
-def customer(id):
-    # find the customer
-    customers = Customer.query.filter_by(id=id).all()
-    if not customers:
-        return f'customer {id} not found'
-    
-    customer = customers[0]
+@food_delivery_bp.route("/food_delivery/customer")
+def customer():
     menuItemsByOrderId = getOrderedMealsByCustomerOnDate(
-        customer.id, datetime.now().date())
+        current_user.id, datetime.now().date())
     
     totalCalories = getCalories(menuItemsByOrderId)
 
-    suggestedMeal = suggestAMeal(totalCalories, customer)
+    suggestedMeal = suggestAMeal(totalCalories, current_user)
     suggestedMealQueryString = '&'.join(f'item={item.id}' for item in suggestedMeal)
     return render_template('customer.html', 
-                           customer=customers[0], 
+                           customer=current_user, 
                            totalCalories=totalCalories,
                            menuItemsByOrderId=menuItemsByOrderId,
                            suggestedMeal=suggestedMeal,

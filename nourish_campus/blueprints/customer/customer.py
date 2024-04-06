@@ -75,7 +75,7 @@ def greeting():
         if user and password_check:
             login_user(user, remember = login_form.remember.data)
 
-        return redirect(f'/food_delivery/customer/{user.id}')
+        return redirect(f'/food_delivery/customer')
 
     if (request.method == "POST") & (request.form.get('post_header') == 'log out'):
         logout_user()
