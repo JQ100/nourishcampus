@@ -37,7 +37,7 @@ restaurants = [
     Restaurant(name="Qdoba", phone="901-846-3127", email="123@mail.com", address="Mary Graydon Center Tunnel"),
     Restaurant(name="Panera Bread", phone="202-885-3184", email="123@mail.com", address="Mary Graydon Center"),
     Restaurant(name="The District Pickle", phone="202-885-7770", email="123@mail.com", address="Mary Graydon Center"),
-    Restaurant(name="True Burger", phone="202-885-7770", email="123@mail.com", address="Mary Graydon Center")
+    Restaurant(name="True Burger", phone="202-885-7770", email="123@mail.com", address="Mary Graydon Center"),
     Restaurant(name="Freshens", phone="202-885-7770", email="123@mail.com", address="East Campus")
 
 ]
