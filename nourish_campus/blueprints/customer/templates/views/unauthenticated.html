@@ -1,19 +1,23 @@
-<p>You are not logged in. Please register or login.</p>
-
+<p>You are not logged in. Please sign up or login.</p>
+<p>Sign up</p>
 <form method="POST" action="">
+    <pre>
     {{ register_form.hidden_tag() }}
-    {{ register_form.email( placeholder = "Email") }}
-    {{ register_form.password( placeholder = "Password") }}
-    {{ register_form.confirm_password( placeholder = "Confirm Password") }}
-    {{ register_form.name( placeholder = "Name") }}
-    {{ register_form.daily_calories_goal( placeholder = "Daily Calories Goal") }}
-    {{ register_form.per_meal_calories_limit( placeholder = "Per Meal Calories Limit") }}
-    {{ register_form.submit() }}
-</form>
+    Email:    {{ register_form.email( placeholder = "Email") }}
+    Password: {{ register_form.password( placeholder = "Password") }} Confirm Password: {{ register_form.confirm_password( placeholder = "Confirm Password") }}
+    Name:     {{ register_form.name( placeholder = "Name") }}
 
+    Daily Calories Goal:     {{ register_form.daily_calories_goal( placeholder = "5000") }} 
+    Per Meal Calories Limit: {{ register_form.per_meal_calories_limit( placeholder = "2000") }}
+    {{ register_form.submit() }}
+    </pre>
+</form>
+<p>Login</p>
 <form method="POST" action="">
+    <pre>
     {{ login_form.hidden_tag() }}
-    {{ login_form.email(placeholder = "Email") }}
-    {{ login_form.password(placeholder = "Password") }}
+    Email:    {{ login_form.email(placeholder = "Email") }}
+    Password: {{ login_form.password(placeholder = "Password") }}
     {{ login_form.submit() }}
+    </pre>
 </form>
