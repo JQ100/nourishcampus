@@ -9,9 +9,11 @@ food_delivery_bp = Blueprint("food_delivery", __name__, template_folder="templat
 
 @food_delivery_bp.route("/food_delivery")
 def food_delivery():
-    customers = Customer.query.all()
-    customers = [current_user]
-    return render_template('food_delivery_index.html', customers=customers)
+    if current_user.is_authenticated:
+        return render_template('food_delivery_index.html', customers=[current_user])
+    else:
+        return redirect('/customer')
+        
 
 @food_delivery_bp.route("/food_delivery/customer")
 def customer():
