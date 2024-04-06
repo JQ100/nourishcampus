@@ -1,12 +1,16 @@
 from flask import Blueprint, render_template, request, redirect
 from ...models.models import MealOrder
 from ...extensions import db
+from flask_login import current_user
 
 order_bp = Blueprint("order", __name__, template_folder="templates")
 
 
 @order_bp.route("/order", methods=['POST', 'GET'])
 def order():
+    if not current_user.is_authenticated:
+        return redirect('/customer')
+    
     if request.method == 'POST':
         name = request.form['name']
         new_order = MealOrder(name=name)
