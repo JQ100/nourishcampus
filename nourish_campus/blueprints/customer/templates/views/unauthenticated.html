@@ -3,9 +3,9 @@
 <form method="POST" action="">
     <pre>
     {{ register_form.hidden_tag() }}
-    Email:    {{ register_form.email( placeholder = "Email") }}
-    Password: {{ register_form.password( placeholder = "Password") }} Confirm Password: {{ register_form.confirm_password( placeholder = "Confirm Password") }}
-    Name:     {{ register_form.name( placeholder = "Name") }}
+    Name:     {{ register_form.name() }}
+    Email:    {{ register_form.email() }}
+    Password: {{ register_form.password() }} Confirm Password: {{ register_form.confirm_password() }}
 
     Daily Calories Goal:     {{ register_form.daily_calories_goal( placeholder = "5000") }} 
     Per Meal Calories Limit: {{ register_form.per_meal_calories_limit( placeholder = "2000") }}
@@ -16,8 +16,8 @@
 <form method="POST" action="">
     <pre>
     {{ login_form.hidden_tag() }}
-    Email:    {{ login_form.email(placeholder = "Email") }}
-    Password: {{ login_form.password(placeholder = "Password") }}
+    Email:    {{ login_form.email() }}
+    Password: {{ login_form.password() }}
     {{ login_form.submit() }}
     </pre>
 </form>
