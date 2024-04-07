@@ -6,7 +6,7 @@
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center">Order</h1>
+    <h1 style="text-align: center">Orders for {{current_user.name}}</h1>
     {% if orders|length < 1 %} <h4 style="text-align: center">There are no orders.</h4>
         {% else %}
         <table class="center">
