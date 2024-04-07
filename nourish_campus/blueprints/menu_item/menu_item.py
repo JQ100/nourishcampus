@@ -6,7 +6,7 @@ from flask_login import current_user
 menu_item_bp = Blueprint("menu_item", __name__, template_folder="templates")
 
 
-@menu_item_bp.route("/menu_item/search?name=name&price=1", methods=['POST'])
+@menu_item_bp.route("/menu_item", methods=['POST'])
 def menu_item():
     # todo: add the following to all the admin posts
     # only admin can add a restaurant

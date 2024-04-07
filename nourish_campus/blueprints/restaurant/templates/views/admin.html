@@ -16,6 +16,7 @@
                 <th>phone</th>
                 <th>email</th>
                 <th>address</th>
+                <th>menu</th>
                 <th>Actions</th>
             </tr>
             {% for restaurant in restaurants %}
@@ -25,10 +26,9 @@
                 <td>{{ restaurant.phone }}</td>
                 <td>{{ restaurant.email }}</td>
                 <td>{{ restaurant.address }}</td>
+                <td><a href="/menu_item/{{restaurant.id}}">menu</a></td>
                 <td>
                     <a href="/restaurant/delete/{{restaurant.id}}">Delete</a>
-                    <br>
-                    <a href="/restaurant/update/{{restaurant.id}}">Update</a>
                 </td>
             </tr>
             {% endfor %}
