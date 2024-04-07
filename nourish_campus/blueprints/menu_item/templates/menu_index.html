@@ -6,7 +6,7 @@
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center">Menu Items for {{restaurant.name}} </h1>
+    <h1 style="text-align: center">Menu for {{restaurant.name}} </h1>
     {% if menu_items|length < 1 %} <h4 style="text-align: center">There are no menu items. Create one below!</h4>
         {% else %}
         <table class="center">

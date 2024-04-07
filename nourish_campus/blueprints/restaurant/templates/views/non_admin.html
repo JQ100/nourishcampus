@@ -11,19 +11,19 @@
     {% else %}
         <table class="center">
             <tr>
-                <th>id</th>
                 <th>name</th>
                 <th>phone</th>
                 <th>email</th>
                 <th>address</th>
+                <th>menu</th>
             </tr>
             {% for restaurant in restaurants %}
             <tr>
-                <td>{{ restaurant.id }}</td>
                 <td>{{ restaurant.name }}</td>
                 <td>{{ restaurant.phone }}</td>
                 <td>{{ restaurant.email }}</td>
                 <td>{{ restaurant.address }}</td>
+                <td><a href="/menu_item/{{restaurant.id}}">menu</a></td>
             </tr>
             {% endfor %}
         </table>        
