@@ -6,32 +6,24 @@
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center">Menu Items</h1>
+    <h1 style="text-align: center">Menu Items for {{restaurant.name}} </h1>
     {% if menu_items|length < 1 %} <h4 style="text-align: center">There are no menu items. Create one below!</h4>
         {% else %}
         <table class="center">
             <tr>
-                <th>id</th>
                 <th>name</th>
                 <th>price</th>
                 <th>calories</th>
-                <th>restaurant_id</th>
-                <th>created_at</th>
                 <th>Actions</th>
             </tr>
             <!-- menu_items contains all menu item queries, used in this loop to traverse the menu items -->
             {% for menu in menu_items %}
             <tr>
-                <td>{{ menu.id }}</td>
                 <td>{{ menu.name }}</td>
                 <td>{{ menu.price }}</td>
                 <td>{{ menu.calories }}</td>
-                <td>{{ menu.restaurant_id }}</td>
-                <td>{{ menu.created_at }}</td>
                 <td>
                     <a href="/menu_item/delete/{{menu.id}}">Delete</a>
-                    <br>
-                    <a href="/menu_item/update/{{menu.id}}">Update</a>
                 </td>
             </tr>
             {% endfor %}
@@ -48,8 +40,9 @@
                 <label for="calories">calories</label>
                 <input type="text" name="calories" id="calories">
                 <br>
-                <label for="restaurant_id">restaurant_id</label>
-                <input type="text" name="restaurant_id" id="restaurant_id">
+                <input type="hidden" name="restaurant_id" id="restaurant_id", value={{restaurant.id}}>
+                <br>
+                <input type="submit" value="Add Menu Item">
             </form>
         </div>
         <!-- <p style="text-align: center"><a href="/">Back to Home</a></p> -->
