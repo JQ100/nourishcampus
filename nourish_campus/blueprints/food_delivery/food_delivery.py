@@ -75,7 +75,7 @@ def order():
     itemIds = request.args.getlist("item")
 
     if not itemIds:
-        return redirect(f'/food_delivery/customer/{customerId}')
+        return redirect('/food_delivery/customer')
 
     name = "meal" # todo: let user specify the meal name (bfast, lunch, dinner, etc.)
     new_order = MealOrder(name=name, customer_id=customerId)
@@ -93,4 +93,4 @@ def order():
         except:
             return 'There was an issue adding your order details'
 
-    return redirect(f'/food_delivery/customer/{customerId}')
+    return redirect('/food_delivery/customer')
