@@ -26,3 +26,10 @@ def order_item():
     else:
         order_items = OrderItem.query.order_by(OrderItem.created_at).all()
         return render_template('order_item_index.html', order_items=order_items)
+
+@order_item_bp.route("/order_item/<int:order_id>", methods=['GET'])
+def get_order_items(order_id):
+    order_items = OrderItem.query.filter_by(
+        order_id=order_id).order_by(OrderItem.created_at).all()
+
+    return render_template('order_item_index.html', order_items=order_items)
