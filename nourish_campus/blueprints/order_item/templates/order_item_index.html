@@ -16,7 +16,6 @@
                 <th>order_id</th>
                 <th>menu_item_id</th>
                 <th>created_at</th>
-                <th>Actions</th>
             </tr>
             {% for order_item in order_items %}
             <tr>
@@ -24,11 +23,6 @@
                 <td>{{ order_item.order_id }}</td>
                 <td>{{ order_item.menu_item_id }}</td>
                 <td>{{ order_item.created_at }}</td>
-                <td>
-                    <a href="/order_item/delete/{{order_item.id}}">Delete</a>
-                    <br>
-                    <a href="/order_item/update/{{order_item.id}}">Update</a>
-                </td>
             </tr>
             {% endfor %}
         </table>
