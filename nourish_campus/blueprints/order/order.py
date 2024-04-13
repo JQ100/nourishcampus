@@ -23,9 +23,6 @@ def order():
             return 'There was an issue adding your task'
 
     else:
-        if current_user.is_admin:
-            orders = MealOrder.query.order_by(MealOrder.created_at).all()
-        else:
-            orders = MealOrder.query.filter_by(
+        orders = MealOrder.query.filter_by(
                 customer_id=current_user.id).order_by(MealOrder.created_at).all()
         return render_template('order_index.html', orders=orders)
