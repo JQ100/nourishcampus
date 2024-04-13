@@ -30,6 +30,10 @@ body {
     line-height: 25px;
 }
 
+.margin-auto {
+    margin: 0 auto;
+}
+
 .loader {
     border-top: 16px solid blue;
     border-right: 16px solid green;
