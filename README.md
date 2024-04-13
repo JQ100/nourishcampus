@@ -19,7 +19,7 @@ $ pip install virtualenv
 $ virtualenv env
 ```
 
-3. Then run the command. Use deactivate to exit the venv
+3. Then run the command. Use deactivate or 'source deactivate' to exit the venv
 ```
 $ source ./env/bin/activate
 ```
