@@ -36,6 +36,7 @@ class MenuItem(db.Model):
     calories = db.Column(db.Integer)
     restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurant.id'))
     created_at = db.Column(db.DateTime, default=datetime.now())
+    is_soft_deleted = db.Column(db.Boolean, default=False)
 
     restaurant = db.relationship("Restaurant", backref="MenuItem")
 

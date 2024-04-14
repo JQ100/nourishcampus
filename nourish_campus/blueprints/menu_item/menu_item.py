@@ -37,3 +37,11 @@ def get_menu_item(restaurant_id):
     # first menu_index template is passed in, second is the var representing db query
     # menu_items contains all menu item queries, then used in template loop traversing the menu items
     return render_template('menu_index.html', menu_items=menu_items, restaurant=restaurant)
+
+@menu_item_bp.route("/menu_item/delete/<int:menu_item_id>")
+def del_menu_item(menu_item_id, restaurant_id):
+    menu_item = MenuItem.query.filter_by(id=menu_item_id).first()
+    menu_item.is_soft_deleted = True
+    db.session.commit()
+
+    return get_menu_item(restaurant_id=restaurant_id)
