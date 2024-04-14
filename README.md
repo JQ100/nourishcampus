@@ -66,6 +66,7 @@ sqlite> select * from personal_info;
 ```
 
 # Todo
+- Fix a bug in order meal
 - Update restaurant info
 - Delete a menu item for a restaurant
 - Recover the soft deleted restaurant
