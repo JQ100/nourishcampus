@@ -47,4 +47,3 @@ def render_all_undeleted_restaurants():
     restaurants = Restaurant.query.order_by(
         Restaurant.id).filter_by(is_soft_deleted=False).all()
     return render_template('restaurant_index.html', restaurants=restaurants)
-    
