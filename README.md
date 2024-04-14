@@ -67,6 +67,8 @@ sqlite> select * from personal_info;
 
 # Todo
 - Recover the soft deleted restaurant
+- Delete a menu item for a restaurant
+- Recover a menu item
 
 # Tutorials and References
 - [How to Use Flask-SQLAlchemy With Flask Blueprints](https://www.youtube.com/watch?v=WhwU1-DLeVw). A video about Flask code structure and database models.
