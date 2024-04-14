@@ -73,3 +73,4 @@ sqlite> select * from personal_info;
 - [Normal forms in DB](https://www.geeksforgeeks.org/normal-forms-in-dbms/). We believe that the DB schema conforms to 3NF and BCNF although we did not prove it.
 - [Sending and retrieving form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data)
 - [Hot to fix favicon.ico 404 errors](https://appwrk.com/resolving-favicon-ico-404-errors)
+- [SQLAlchemy ORM for insert, delete and update](https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/#querying-records)

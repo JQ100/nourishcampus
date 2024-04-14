@@ -28,5 +28,23 @@ def restaurant():
         except:
             return 'There was an issue adding the restaurant'
     else:
-        restaurants = Restaurant.query.order_by(Restaurant.id).all()
-        return render_template('restaurant_index.html', restaurants=restaurants)
+        return render_all_undeleted_restaurants()
+
+
+@restaurant_bp.route("/restaurant/delete/<int:restaurant_id>")
+def del_restaurant(restaurant_id):
+    # delete from restaurant where id=restaurant_id
+    # do this: is_soft_deleted = True
+    #   update restaurant set is_soft_deleted = True where id=restaurant_id
+    restaurant = Restaurant.query.filter_by(id=restaurant_id).first()
+    restaurant.is_soft_deleted = True
+    db.session.commit()
+
+    return render_all_undeleted_restaurants()
+
+
+def render_all_undeleted_restaurants():
+    restaurants = Restaurant.query.order_by(
+        Restaurant.id).filter_by(is_soft_deleted=False).all()
+    return render_template('restaurant_index.html', restaurants=restaurants)
+    

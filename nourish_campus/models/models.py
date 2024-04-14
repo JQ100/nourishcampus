@@ -24,6 +24,7 @@ class Restaurant(db.Model):
     phone = db.Column(db.String(12))
     email = db.Column(db.String(64))
     address = db.Column(db.String(200))
+    is_soft_deleted = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return '<Restaurant %r>' % self.id
