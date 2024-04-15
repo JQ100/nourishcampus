@@ -6,13 +6,16 @@
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center">My Account</h1>
+    <h1 style="text-align: center">{{customer.name}}</h1>
 
-    <h2>Customer Info</h2>
-    <p>name = {{customer.name}}</p>
-    <p>daily_calories_goal = {{customer.daily_calories_goal}}, 
-        per_meal_calories_limit = {{customer.per_meal_calories_limit}} </p>
-    <p>total calories consumed today = {{totalCalories}}</p>
+    <h2>My Info</h2>
+    <p>
+        daily_calories_goal = {{customer.daily_calories_goal}}
+        <br>
+        per_meal_calories_limit = {{customer.per_meal_calories_limit}}
+        <br>
+        total calories consumed today = {{totalCalories}}
+    </p>
     
     <h2>Today's Ordered Meals</h2>
     <ol>
