@@ -68,7 +68,7 @@ sqlite> select * from personal_info;
 # Todo
 - Redirect to /restaurant after deleting a restaurant.
 - Update restaurant info
-- Use tables in /food_delivery/customer to improve the presentation.
+- Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
 - Recover the soft deleted restaurant. Add a recovery page/url.
 - Recover the soft deleted menu item. Add a recovery page/url.
 
