@@ -19,9 +19,20 @@
         {% for orderId, menuItems in menuItemsByOrderId.items() %}
         <li>Meal order: orderId = {{orderId}}
             <ul>
-                {% for menuItem in menuItems %}
-                <li>name = {{menuItem.name}}, calories = {{menuItem.calories}}, restaurant = {{menuItem.restaurant_id}} </li>
-                {% endfor %}
+                <table class="left">
+                    <tr>
+                        <th>name</th>
+                        <th>calories</th>
+                        <th>restaurant</th>
+                    </tr>
+                    {% for menuItem in menuItems %}
+                    <tr>
+                        <td>{{ menuItem.name }}</td>
+                        <td>{{ menuItem.calories }}</td>
+                        <td>{{ menuItem.restaurant_id }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </ul>
         </li>
         {% endfor %}
@@ -31,9 +42,20 @@
     {% if suggestedMeal|length < 1 %} <h4>There is no suggested meal.</h4>
     {% else %}
         <ul>
-            {% for menuItem in suggestedMeal %}
-            <li>name = {{menuItem.name}}, calories = {{menuItem.calories}}, restaurant = {{menuItem.restaurant_id}} </li>
-            {% endfor %}
+            <table class="left">
+                <tr>
+                    <th>name</th>
+                    <th>calories</th>
+                    <th>restaurant</th>
+                </tr>
+                {% for menuItem in suggestedMeal %}
+                <tr>
+                    <td>{{ menuItem.name }}</td>
+                    <td>{{ menuItem.calories }}</td>
+                    <td>{{ menuItem.restaurant_id }}</td>
+                </tr>
+                {% endfor %}
+            </table>  
         </ul>
         <p><a href="/food_delivery/order/?customer={{customer.id}}&{{suggestedMealQueryString}}">Order the meal</a></p>
         <p><a href="/food_delivery/customer">Suggest a meal again</a></p>
