@@ -37,10 +37,15 @@ def suggestAMeal(totalConsumedCalories: int, customer: Customer) -> list[MenuIte
 
     availableCalories = min(customer.daily_calories_goal - totalConsumedCalories, customer.per_meal_calories_limit)
     meal = []
+    counter = 0
     while items and availableCalories > 0:
         item = random.choice(items)
         items.remove(item)
         if item.calories <= availableCalories:
+            if item.calories <= 10:
+                counter += 1
+            if counter > 2:
+                pass
             meal.append(item)
             availableCalories -= item.calories
     return meal
