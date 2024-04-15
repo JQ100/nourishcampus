@@ -70,6 +70,7 @@ sqlite> select * from personal_info;
 - Update restaurant info
 - Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
 - Limit low calories drinks in a meal order. Otherwise, there are too many drinks in an order.
+- update a person's calories goal and daily limit.
 - Recover the soft deleted restaurant. Add a recovery page/url.
 - Recover the soft deleted menu item. Add a recovery page/url.
 
