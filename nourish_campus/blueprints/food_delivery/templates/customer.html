@@ -60,9 +60,12 @@
                 {% endfor %}
             </table>  
         </ul>
-        <p><a href="/food_delivery/order/?customer={{customer.id}}&{{suggestedMealQueryString}}">Order the meal</a></p>
-        <p><a href="/food_delivery/customer">Suggest a meal again</a></p>
     {% endif %}
+    <p>
+        <a href="/food_delivery/order/?customer={{customer.id}}&{{suggestedMealQueryString}}">Order the meal</a>
+        <br>
+        <a href="/food_delivery/customer">Suggest a meal again</a>
+    </p>
     <p><a href="/">Back to Home</a></p>
 </div>
 {% endblock %}
