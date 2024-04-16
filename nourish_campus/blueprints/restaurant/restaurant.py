@@ -39,11 +39,10 @@ def del_restaurant(restaurant_id):
     restaurant = Restaurant.query.filter_by(id=restaurant_id).first()
     restaurant.is_soft_deleted = True
     db.session.commit()
-
-    return render_all_undeleted_restaurants()
-
+    return redirect(f'/restaurant')
 
 def render_all_undeleted_restaurants():
     restaurants = Restaurant.query.order_by(
         Restaurant.id).filter_by(is_soft_deleted=False).all()
     return render_template('restaurant_index.html', restaurants=restaurants)
+
