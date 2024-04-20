@@ -41,10 +41,13 @@ def suggestAMeal(totalConsumedCalories: int, customer: Customer) -> list[MenuIte
     while items and availableCalories > 0:
         item = random.choice(items)
         items.remove(item)
+        if item.is_soft_deleted:
+            continue
+
         if item.calories <= availableCalories:
             if item.calories <= 15:
                 counter += 1
-            if counter > 2 or item.is_soft_deleted:
+            if counter > 2:
                 continue
             meal.append(item)
             availableCalories -= item.calories

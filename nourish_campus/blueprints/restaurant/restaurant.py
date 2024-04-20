@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from ...models.models import Restaurant
+from ...models.models import Restaurant, MenuItem
 from ...extensions import db
 
 restaurant_bp = Blueprint(
@@ -38,6 +38,14 @@ def del_restaurant(restaurant_id):
     #   update restaurant set is_soft_deleted = True where id=restaurant_id
     restaurant = Restaurant.query.filter_by(id=restaurant_id).first()
     restaurant.is_soft_deleted = True
+
+    # also delete the menu items for the restaurant
+    # select * from MenuItem where restaurant_id = restaurant_id
+    # update ...
+    items = MenuItem.query.filter_by(restaurant_id=restaurant_id).all()
+    for item in items:
+        item.is_soft_deleted = True
+
     db.session.commit()
     return redirect(f'/restaurant')
 
