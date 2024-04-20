@@ -66,7 +66,6 @@ sqlite> select * from personal_info;
 ```
 
 # Todo
-- Redirect to /restaurant after deleting a restaurant.
 - Update restaurant info
 - Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
 - update a person's calories goal and daily limit.
