@@ -14,7 +14,8 @@
                 <th>name</th>
                 <th>price</th>
                 <th>calories</th>
-                <th>Actions</th>
+                <th>update</th>
+                <th>delete</th>
             </tr>
             <!-- menu_items contains all menu item queries, used in this loop to traverse the menu items -->
             {% for menu in menu_items %}
@@ -23,8 +24,16 @@
                 <td>{{ menu.price }}</td>
                 <td>{{ menu.calories }}</td>
                 <td>
-                    <a href="/menu_item/update/{{restaurant.id}}/{{menu.id}}">Update</a>
-                    <a href="/menu_item/delete/{{restaurant.id}}/{{menu.id}}">Delete</a>
+                    <!-- <a href="/menu_item/update/{{restaurant.id}}/{{menu.id}}">Update</a>
+                    <a href="/menu_item/delete/{{restaurant.id}}/{{menu.id}}">Delete</a> -->
+                    <form action="/menu_item/update/{{restaurant.id}}/{{menu.id}}" method="GET">
+                        <input type="submit" style=background-color:#4E9CAF;border-color:green;color:white;width:60px value="update">
+                    </form>
+                </td>
+                <td>
+                    <form action="/menu_item/delete/{{restaurant.id}}/{{menu.id}}" method="POST" onsubmit="return confirm('Are you sure you wish to delete {{menu.name}}?');">
+                        <input type="submit" style=background-color:#4E9CAF;border-color:green;color:white;width:60px value="delete">
+                    </form>
                 </td>
             </tr>
             {% endfor %}

@@ -75,7 +75,7 @@ def update_menu_item(restaurant_id, menu_item_id):
         return render_template('menu_update.html', update_form=updateForm)
 
 
-@menu_item_bp.route("/menu_item/delete/<int:restaurant_id>/<int:menu_item_id>")
+@menu_item_bp.route("/menu_item/delete/<int:restaurant_id>/<int:menu_item_id>", methods=["POST"])
 def del_menu_item(restaurant_id, menu_item_id):
     menu_item = MenuItem.query.filter_by(id=menu_item_id).first()
     menu_item.is_soft_deleted = True

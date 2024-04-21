@@ -17,7 +17,8 @@
                 <th>email</th>
                 <th>address</th>
                 <th>menu</th>
-                <th>Actions</th>
+                <th>update</th>
+                <th>delete</th>
             </tr>
             {% for restaurant in restaurants %}
             <tr>
@@ -33,7 +34,9 @@
                     <form action="/restaurant/update/{{restaurant.id}}" method="GET">
                         <input type="submit" style=background-color:#4E9CAF;border-color:green;color:white;width:60px value="update">
                     </form>
-                    <form action="/restaurant/delete" method="POST" onsubmit="return confirm('Are you sure you wish to delete?');">
+                </td>
+                <td>
+                    <form action="/restaurant/delete" method="POST" onsubmit="return confirm('Are you sure you wish to delete {{restaurant.name}}?');">
                         <input type="hidden" id="restaurant_id" name="restaurant_id" value="{{ restaurant.id }}">
                         <input type="submit" style=background-color:#4E9CAF;border-color:green;color:white;width:60px value="delete">
                     </form>
