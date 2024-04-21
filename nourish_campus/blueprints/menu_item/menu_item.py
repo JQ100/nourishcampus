@@ -59,7 +59,7 @@ def update_menu_item(restaurant_id, menu_item_id):
             menu_item.calories = updateForm.calories.data
 
             db.session.commit()
-            return redirect('/menu_item/{restaurant_id}')
+            return redirect(f'/menu_item/{restaurant_id}')
         else:
             # print the form errors for debugging
             print(updateForm.errors)
