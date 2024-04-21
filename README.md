@@ -69,7 +69,7 @@ sqlite> select * from personal_info;
 - Use web form with GET method instead of the <a> tag for update/delete/menu links to create a button
 - Add pop up confirmation window when deleting a menu item.
 - Use the same color style for all the buttons
-- Update menu items
+- Change customer profile in the login page
 - check if current_user is logged in and is an admin before udpate, delete and insert operations in BP code.
 - Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
 - Convert the insert forms (restaurant and menu) to flask form.
