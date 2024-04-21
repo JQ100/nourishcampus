@@ -66,11 +66,14 @@ sqlite> select * from personal_info;
 ```
 
 # Todo
-- Update restaurant info
+- Update menu items
+- check if current_user is logged in and is an admin before udpate, delete and insert operations in BP code.
 - Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
+- Convert the insert forms (restaurant and menu) to flask form.
 - update a person's calories goal and daily limit.
 - Recover the soft deleted restaurant. Add a recovery page/url.
 - Recover the soft deleted menu item. Add a recovery page/url.
+- May initialize and handle CSRF token if it does not work.
 
 # Tutorials and References
 - [How to Use Flask-SQLAlchemy With Flask Blueprints](https://www.youtube.com/watch?v=WhwU1-DLeVw). A video about Flask code structure and database models.
@@ -81,3 +84,5 @@ sqlite> select * from personal_info;
 - [Sending and retrieving form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data)
 - [Hot to fix favicon.ico 404 errors](https://appwrk.com/resolving-favicon-ico-404-errors)
 - [SQLAlchemy ORM for insert, delete and update](https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/#querying-records)
+- [CSRF token issue](https://stackoverflow.com/questions/71725166/bad-request-csrf-token-not-found-csrf-handling-for-flask-wtf)
+- [What is CSRF (Cross-site request forgery)](https://portswigger.net/web-security/csrf#what-is-csrf)

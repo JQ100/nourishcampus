@@ -1,0 +1,15 @@
+<h1>Update Restaurant</h1>
+
+<form method="POST" action="">
+    <!-- The hidden tag is for the CSRF token -->
+    <!-- https://stackoverflow.com/questions/71725166/bad-request-csrf-token-not-found-csrf-handling-for-flask-wtf -->
+    {{ update_form.hidden_tag() }}
+    <pre>
+    Name:       {{ update_form.name() }}
+    Email:      {{ update_form.email() }}
+    Phone:      {{ update_form.phone() }}
+    Address:    {{ update_form.address() }}
+
+    {{ update_form.submit() }}
+    </pre>
+</form>

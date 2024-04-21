@@ -1,6 +1,17 @@
 from flask import Blueprint, render_template, request, redirect
 from ...models.models import Restaurant, MenuItem
 from ...extensions import db
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired, Email
+
+class RestaurantUpdateForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    phone = StringField('Phone', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    address = StringField('Address', validators=[DataRequired()])
+    submit = SubmitField('Update Restaurant')
+
 
 restaurant_bp = Blueprint(
     "restaurant",
@@ -11,24 +22,55 @@ restaurant_bp = Blueprint(
 
 
 @restaurant_bp.route("/restaurant", methods=["GET", "POST"])
-def restaurant():
+def handle_restaurant():
     if request.method == 'POST':
         name = request.form['name']
         phone = request.form['phone']
         email = request.form['email']
         address = request.form['address']
 
-        new_menu_item = Restaurant(
+        restaurant = Restaurant(
             name=name, phone=phone, email=email, address=address)
 
         try:
-            db.session.add(new_menu_item)
+            db.session.add(restaurant)
             db.session.commit()
             return redirect('/restaurant')
         except:
             return 'There was an issue adding the restaurant'
     else:
         return render_all_undeleted_restaurants()
+
+
+# example url: http://localhost:5000/restaurant/update/3
+@restaurant_bp.route("/restaurant/update/<int:restaurant_id>", methods=["GET", "POST"])
+def update_restaurant(restaurant_id):
+    if request.method == "POST":
+        # POST
+        updateForm = RestaurantUpdateForm()
+        if updateForm.validate():
+            restaurant = Restaurant.query.filter_by(id=restaurant_id).first()
+            restaurant.name = updateForm.name.data
+            restaurant.address = updateForm.address.data
+            restaurant.phone = updateForm.phone.data
+            restaurant.email = updateForm.email.data
+
+            db.session.commit()
+            return redirect('/restaurant')
+        else:
+            # print the form errors for debugging
+            print(updateForm.errors)
+            return "There are errors in your update restaurant form."
+    else:
+        # GET
+        restaurant = Restaurant.query.filter_by(id=restaurant_id).first()
+        updateForm = RestaurantUpdateForm()
+        # pre-fill the data with the restaurant info
+        updateForm.email.data = restaurant.email
+        updateForm.address.data = restaurant.address
+        updateForm.phone.data = restaurant.phone
+        updateForm.name.data = restaurant.name
+        return render_template('restaurant_update.html', update_form=updateForm)
 
 
 @restaurant_bp.route("/restaurant/delete/<int:restaurant_id>")
