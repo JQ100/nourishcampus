@@ -66,7 +66,6 @@ sqlite> select * from personal_info;
 ```
 
 # Todo
-- check if current_user is logged in and is an admin before udpate, delete and insert operations in BP code.
 - Add a feature for a customer to update/change his profile in the login page. update a person's calories goal and daily limit.
 - Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
 - Recover the soft deleted restaurant. Add a recovery page/url.
