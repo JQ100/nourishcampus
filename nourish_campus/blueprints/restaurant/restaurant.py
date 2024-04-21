@@ -73,8 +73,10 @@ def update_restaurant(restaurant_id):
         return render_template('restaurant_update.html', update_form=updateForm)
 
 
-@restaurant_bp.route("/restaurant/delete/<int:restaurant_id>")
-def del_restaurant(restaurant_id):
+@restaurant_bp.route("/restaurant/delete", methods=["POST"])
+def del_restaurant():
+    restaurant_id = request.form['restaurant_id']
+
     # delete from restaurant where id=restaurant_id
     # do this: is_soft_deleted = True
     #   update restaurant set is_soft_deleted = True where id=restaurant_id

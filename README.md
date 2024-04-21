@@ -66,6 +66,7 @@ sqlite> select * from personal_info;
 ```
 
 # Todo
+- Use web form with GET method instead of the <a> tag for update/delete/menu links to create a button
 - Update menu items
 - check if current_user is logged in and is an admin before udpate, delete and insert operations in BP code.
 - Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
