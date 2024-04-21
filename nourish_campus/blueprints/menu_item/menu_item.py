@@ -17,10 +17,8 @@ class MenuUpdateForm(FlaskForm):
 
 @menu_item_bp.route("/menu_item", methods=['POST'])
 def menu_item():
-    # todo: add the following to all the admin posts
-    # only admin can add a restaurant
     if not current_user.is_authenticated or not current_user.is_admin:
-        return "Cannot add a restanrant because you are not an admin!"
+        return "You are not authorized to add a menu."
 
     name = request.form['name']
     price = float(request.form['price'])
@@ -50,7 +48,9 @@ def get_menu_item(restaurant_id):
 @menu_item_bp.route("/menu_item/update/<int:restaurant_id>/<int:menu_item_id>", methods=["GET", "POST"])
 def update_menu_item(restaurant_id, menu_item_id):
     if request.method == "POST":
-        # POST
+        if not current_user.is_admin:
+            return "You are not authorized to update a menu item."
+
         updateForm = MenuUpdateForm()
         if updateForm.validate():
             menu_item = MenuItem.query.filter_by(id=menu_item_id).first()
@@ -77,6 +77,8 @@ def update_menu_item(restaurant_id, menu_item_id):
 
 @menu_item_bp.route("/menu_item/delete/<int:restaurant_id>/<int:menu_item_id>", methods=["POST"])
 def del_menu_item(restaurant_id, menu_item_id):
+    if not current_user.is_admin:
+        return "You are not authorized to delete a menu item."
     menu_item = MenuItem.query.filter_by(id=menu_item_id).first()
     menu_item.is_soft_deleted = True
     db.session.commit()

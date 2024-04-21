@@ -4,6 +4,8 @@ from ...extensions import db
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Email
+from flask_login import current_user
+
 
 class RestaurantUpdateForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
@@ -24,6 +26,8 @@ restaurant_bp = Blueprint(
 @restaurant_bp.route("/restaurant", methods=["GET", "POST"])
 def handle_restaurant():
     if request.method == 'POST':
+        if not current_user.is_admin:
+            return "You are not authorized to add a restaurant."
         name = request.form['name']
         phone = request.form['phone']
         email = request.form['email']
@@ -46,7 +50,9 @@ def handle_restaurant():
 @restaurant_bp.route("/restaurant/update/<int:restaurant_id>", methods=["GET", "POST"])
 def update_restaurant(restaurant_id):
     if request.method == "POST":
-        # POST
+        if not current_user.is_admin:
+            return "You are not authorized to update a restaurant."
+
         updateForm = RestaurantUpdateForm()
         if updateForm.validate():
             restaurant = Restaurant.query.filter_by(id=restaurant_id).first()
@@ -75,6 +81,9 @@ def update_restaurant(restaurant_id):
 
 @restaurant_bp.route("/restaurant/delete", methods=["POST"])
 def del_restaurant():
+    if not current_user.is_admin:
+        return "You are not authorized to delete a restaurant."
+
     restaurant_id = request.form['restaurant_id']
 
     # delete from restaurant where id=restaurant_id
