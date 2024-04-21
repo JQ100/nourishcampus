@@ -66,17 +66,19 @@ sqlite> select * from personal_info;
 ```
 
 # Todo
-- Use web form with GET method instead of the <a> tag for update/delete/menu links to create a button
-- Add pop up confirmation window when deleting a menu item.
-- Use the same color style for all the buttons
-- Change customer profile in the login page
 - check if current_user is logged in and is an admin before udpate, delete and insert operations in BP code.
+- Add a feature for a customer to update/change his profile in the login page. update a person's calories goal and daily limit.
 - Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
-- Convert the insert forms (restaurant and menu) to flask form.
-- update a person's calories goal and daily limit.
 - Recover the soft deleted restaurant. Add a recovery page/url.
 - Recover the soft deleted menu item. Add a recovery page/url.
-- May initialize and handle CSRF token if it does not work.
+- low priority: May initialize and handle CSRF token if it does not work.
+- low priority: convert the insert forms (restaurant and menu) to flask form. 
+
+# Done in the last period
+- user login with Flask login
+- update for restaurant and menu
+- soft delete a restaurant or menu. May add a feature to recover the deleted.
+- cosmetic improvements. colors, buttons, and pop up window, etc.
 
 # Tutorials and References
 - [How to Use Flask-SQLAlchemy With Flask Blueprints](https://www.youtube.com/watch?v=WhwU1-DLeVw). A video about Flask code structure and database models.
