@@ -27,10 +27,7 @@
                 <td>{{ restaurant.email }}</td>
                 <td>{{ restaurant.address }}</td>
                 <td>
-                    <!-- use web form with GET method instead of the <a> tag to create a button -->
-                    <form action="/menu_item/{{restaurant.id}}" method="GET">
-                        <input type="submit" style=background-color:#4E9CAF;border-color:green;color:white value="menu">
-                    </form>
+                    <a href="/menu_item/{{restaurant.id}}">menu</a>
                 </td>
                 <td>
                     <form action="/restaurant/update/{{restaurant.id}}" method="GET">
