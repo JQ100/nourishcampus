@@ -14,4 +14,3 @@ SQLAlchemy==1.4.31
 Werkzeug==2.0.2
 wtforms==3.1.2
 email_validator==2.1.1
-openai==0.28.0
