@@ -65,20 +65,6 @@ sqlite> .schema
 sqlite> select * from personal_info;
 ```
 
-# Todo
-- Add a feature for a customer to update/change his profile in the login page. update a person's calories goal and daily limit.
-- Use restaurant name instead of id in /food_delivery/customer to improve the presentation.
-- Recover the soft deleted restaurant. Add a recovery page/url.
-- Recover the soft deleted menu item. Add a recovery page/url.
-- low priority: May initialize and handle CSRF token if it does not work.
-- low priority: convert the insert forms (restaurant and menu) to flask form. 
-
-# Done in the last period
-- user login with Flask login
-- update for restaurant and menu
-- soft delete a restaurant or menu. May add a feature to recover the deleted.
-- cosmetic improvements. colors, buttons, and pop up window, etc.
-
 # Tutorials and References
 - [How to Use Flask-SQLAlchemy With Flask Blueprints](https://www.youtube.com/watch?v=WhwU1-DLeVw). A video about Flask code structure and database models.
 - [Learn Flask for Python - Full Tutorial](https://youtu.be/Z1RJmh_OqeA?si=RZDIhkaCRJwQjdLJ&t=1182). A video about database models and REST API. Watch this for CRUD.
